@@ -1,5 +1,9 @@
 // Models
-export { Month, IPublicHoliday, FixedDayInMonthHoliday, DateUtils } from './models';
+export { FixedDayInMonthHoliday, Month, PublicHoliday } from './models';
 
 // Services
-export { IBusinessDayCalculator, BusinessDayCalculator } from './services';
+export { BusinessDayCalculator } from './services';
+
+// Utils
+export { DateUtils } from './utils';
+

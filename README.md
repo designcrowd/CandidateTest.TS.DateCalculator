@@ -75,14 +75,51 @@ Business days between 12/1/2024 and 12/31/2024: 21
 2. **Excludes Public Holidays**: Public holidays are retrieved for the specified date range, and any date matching a holiday is excluded from the count.
 3. **Counts business days**: The method counts the business days between `firstDate` and `secondDate` and checks each date for weekends or holidays.
 
+### Project Structure
+
+```
+typescript-date-calculator/
+├── src/
+│   ├── models/
+│   │   ├── holidays/
+│   │   │   ├── fixedDayInMonthHoliday.ts
+│   │   │   ├── publicHoliday.ts
+│   │   │   └── index.ts
+│   │   ├── month.ts
+│   │   └── index.ts
+│   ├── services/
+│   │   ├── businessDayCalculator.ts
+│   │   └── index.ts
+│   ├── utils/
+│   │   ├── dateUtils.ts
+│   │   └── index.ts
+│   └── index.ts
+├── tests/
+│   └── businessDayCalculator.test.ts
+├── package.json
+└── tsconfig.json
+```
+
+### Architecture
+
+The project follows a clean architecture pattern with clear separation of concerns:
+
+- **Models**: Contains all domain models and interfaces
+  - `holidays/`: Holiday-related models and implementations
+  - `month.ts`: Enumeration of months
+- **Services**: Contains business logic implementations
+  - `businessDayCalculator.ts`: Core business day calculation logic
+- **Utils**: Contains utility functions and helpers
+  - `dateUtils.ts`: Date manipulation utilities
+
 ### Testing
 
-The project includes various unit tests that validate the behavior of the `BusinessDayCalculator`, ensuring that:
+The project includes comprehensive unit tests that validate the behavior of the `BusinessDayCalculator`, ensuring that:
 
-- Business days are correctly calculated.
-- Weekends are properly excluded.
-- Public holidays are properly handled.
-- Edge cases like empty holiday lists or single-day ranges are managed.
+- Business days are correctly calculated
+- Weekends are properly excluded
+- Public holidays are properly handled
+- Edge cases like empty holiday lists or single-day ranges are managed
 
 Run the tests with:
 
@@ -90,25 +127,21 @@ Run the tests with:
 npm test
 ```
 
-## Project Structure
+The project uses Vitest as the testing framework, along with ESLint and Prettier for code quality and formatting.
 
-```
-typescript-date-calculator/
-├── src/
-│   ├── models/
-│   │   ├── DateUtils.ts
-│   │   ├── FixedDayInMonthHoliday.ts
-│   │   ├── IPublicHoliday.ts
-│   │   └── Month.ts
-│   ├── services/
-│   │   ├── BusinessDayCalculator.ts
-│   │   └── IBusinessDayCalculator.ts
-│   ├── tests/
-│   │   └── BusinessDayCalculator.test.ts
-│   └── index.ts
-├── package.json
-├── tsconfig.json
-└── jest.config.js
+### Code Quality
+
+The project maintains high code quality standards through:
+
+- TypeScript for type safety
+- ESLint for code linting
+- Prettier for consistent code formatting
+
+Run the following commands:
+```bash
+npm run lint     # Check for linting issues
+npm run lint:fix # Fix linting issues
+npm run format   # Format code with Prettier
 ```
 
 ### License

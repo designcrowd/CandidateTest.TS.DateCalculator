@@ -1,7 +1,7 @@
-import { Month } from './month';
-import { IPublicHoliday } from './publicHoliday.interface';
+import { Month } from '..';
+import { PublicHoliday } from './publicHoliday';
 
-export class FixedDayInMonthHoliday implements IPublicHoliday {
+export class FixedDayInMonthHoliday implements PublicHoliday {
   holidayName: string;
   day: number;
   month: Month;

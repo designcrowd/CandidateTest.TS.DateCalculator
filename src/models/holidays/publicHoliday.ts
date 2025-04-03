@@ -1,3 +1,3 @@
-export interface IPublicHoliday {
+export interface PublicHoliday {
   getHolidayDate(year: number): Date;
 }
